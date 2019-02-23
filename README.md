@@ -12,5 +12,6 @@ server side macros/routines/scripts executable from inbound strings..
 sensors.
 servos???
 reactjs???
+accompanying standalone client project.
 micropython.
 ssl.
