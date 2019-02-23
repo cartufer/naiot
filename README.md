@@ -1,6 +1,8 @@
 # naiot
 Not Another Internet Of Things
+
 WebSocket based Server for Espressif microcontrollers
+
 This is probably going to be an arduino project but may move to micropython for security.
 
 Goals in order of priority;
