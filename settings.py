@@ -1,1 +1,1 @@
-# This file stores config settings
+# This file stores config settings, maybe someday
