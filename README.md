@@ -16,3 +16,5 @@ servos???
 reactjs???
 accompanying standalone micropython client project.
 ssl.
+wss.
+twitch pub/sub.
