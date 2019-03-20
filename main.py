@@ -1,6 +1,8 @@
 import wifimgr
 import _thread
 import time
+import gc
+import machine
 def testThread():
   while True:
     import network
@@ -28,5 +30,10 @@ print("ESP OK, wifi connected")
 
 _thread.start_new_thread(testThread, ())
 #for i in range(1):
-_thread.start_new_thread(testThread, ())
+#_thread.start_new_thread(testThread, ())
+time.sleep(3)
 print("mdns setup complete")
+gc.collect()
+time.sleep(1)
+gc.enable()
+print("garbage collector running")
