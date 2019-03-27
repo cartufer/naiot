@@ -28,11 +28,11 @@ print("ESP OK, wifi connected")
 #gc.enable()
 #def testThread():#server.run_forever()
 
-_thread.start_new_thread(testThread, ())
+#_thread.start_new_thread(testThread, ())
 #for i in range(1):
 #_thread.start_new_thread(testThread, ())
 time.sleep(3)
-print("mdns setup complete")
+#print("mdns setup complete")
 gc.collect()
 time.sleep(1)
 gc.enable()

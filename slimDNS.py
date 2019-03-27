@@ -6,9 +6,9 @@
 # Licensed under the Apache License, Version 2.0 (the "License"); you
 # may not use this file except in compliance with the License. You may
 # obtain a copy of the License at
-# 
+#
 # http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
@@ -41,7 +41,7 @@ MAX_PACKET_SIZE = const(1024)
 MAX_NAME_SEARCH = const(20)
 
 # DNS constants
-    
+
 _MDNS_ADDR = '224.0.0.251'
 _MDNS_PORT = const(5353);
 _DNS_TTL = const(2 * 60) # two minute default TTL
@@ -181,7 +181,7 @@ def compare_q_and_a(q_buf, q_offset, a_buf, a_offset=0):
     return (q_class == r_class or q_class == _TYPE_ANY)
 
 
-# The main SlimDNSServer class           
+# The main SlimDNSServer class
 class SlimDNSServer:
     def __init__(self, local_addr, hostname=None):
         # If a hostname is give we try to register it
@@ -189,7 +189,7 @@ class SlimDNSServer:
         self.sock = self._make_socket()
         self.sock.bind(('', _MDNS_PORT))
         self.adverts = []
-        self.hostname = None
+        #self.hostname = None
         self._reply_buffer = None
         self._pending_question = None
         self.answered = False
@@ -218,7 +218,7 @@ class SlimDNSServer:
             raise ValueError("hostname should be a single name component")
 
         ip_bytes = dotted_ip_to_bytes(self.local_addr)
-        
+
         basename = hostname[0]
         for i in range(MAX_NAME_SEARCH):
             if i != 0:
@@ -273,9 +273,9 @@ class SlimDNSServer:
         # reply, even though we are now done with the receiving buffer
 
         if not self._reply_buffer or len(self._reply_buffer) < reply_len:
-            # print("Making new reply buffer of len {}".format(reply_len))
+            print("Making new reply buffer of len {}".format(reply_len))
             self._reply_buffer = memoryview(bytearray(reply_len))
-        
+
         buf = self._reply_buffer
         pack_into("!HHHHHH", buf, 0,
                   pkt_id, _FLAGS_QR_RESPONSE | _FLAGS_AA,
@@ -286,7 +286,7 @@ class SlimDNSServer:
             buf[o:o+l] = a
             o += l
 
-        # print("Sending packed reply: {}".format(bytes(buf[:o])))
+        print("Sending packed reply: {}".format(bytes(buf[:o])))
 
         # We fake the handling of unicast replies. If the packet came
         # from the mutlicast port we multicast the reply but if it
@@ -301,7 +301,7 @@ class SlimDNSServer:
             if not readers:
                 break
             buf, addr = self.sock.recvfrom(MAX_PACKET_SIZE)
-            # print("Received {} bytes from {}".format(len(buf), addr))
+            print("Received {} bytes from {}".format(len(buf), addr))
             if buf and addr[0] != self.local_addr:
                 try:
                     self.process_packet(memoryview(buf), addr)
@@ -359,7 +359,7 @@ class SlimDNSServer:
         self.handle_question(q, _answer_handler, fast)
         return bytes(answer[0]) if answer else None
 
-    
+
 def test():
     import network
     sta_if = network.WLAN(network.STA_IF)
