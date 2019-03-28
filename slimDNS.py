@@ -189,7 +189,7 @@ class SlimDNSServer:
         self.sock = self._make_socket()
         self.sock.bind(('', _MDNS_PORT))
         self.adverts = []
-        #self.hostname = None
+        self.hostname = None
         self._reply_buffer = None
         self._pending_question = None
         self.answered = False
