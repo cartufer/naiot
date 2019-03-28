@@ -5,6 +5,8 @@ WebSocket based Server for Espressif microcontrollers
 
 This is going to be a micropython project.
 
+This project is on hold, pending a functioning mdns plugin.
+
 Goals in order of priority;
 set pins based on inbound websocket strings.
 control sk6812 and ws2812/ws2811 lighting based on inbound strings.
