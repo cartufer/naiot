@@ -1,11 +1,9 @@
 # naiot
 Not Another Internet Of Things
 
-WebSocket based Server for Espressif microcontrollers
+WebSocket based iot Server for Micropython microcontrollers
 
-This is going to be a micropython project.
-
-This project is on hold, pending a functioning mdns plugin.
+The main program of this project is mit licensed but uses both mit licensed projects and apache2.0 licensed projects. Please be aware of these licenses in the license folder.
 
 Goals in order of priority;
 set pins based on inbound websocket strings.
