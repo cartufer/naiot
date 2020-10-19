@@ -1,6 +1,8 @@
 # naiot
 Not Another Internet Of Things
 
+This project is heavily work in progress, many sections have yet to be written.
+
 WebSocket based iot Server for Micropython microcontrollers
 
 The main program of this project is mit licensed but uses both mit licensed projects and apache2.0 licensed projects. Please be aware of these licenses in the licenses folder.
